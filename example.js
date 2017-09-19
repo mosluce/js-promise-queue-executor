@@ -5,10 +5,10 @@ function promise(step) {
   return (prestep) => new Promise((resolve) => {
     if (prestep) console.log('after step =>', prestep)
     setTimeout(function () {
-      console.log('complete =>', step)
+      console.log('complete =>', step, Date.now())
       console.log('==============')
-      resolve(step);
-    }, Math.random() * 1500);
+      resolve(step)
+    }, Math.random() * 1500)
   });
 }
 
