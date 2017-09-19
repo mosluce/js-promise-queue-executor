@@ -1,0 +1,10 @@
+{
+  "name": "promise-queue",
+  "version": "1.0.0",
+  "main": "example.js",
+  "license": "MIT",
+  "author": {
+    "email": "mosluce@gmail.com",
+    "name": "mosluce"
+  }
+}
