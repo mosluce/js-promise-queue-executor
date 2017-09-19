@@ -12,4 +12,5 @@ function promise(step) {
   });
 }
 
-queue([1, 2, 3, 4].map(promise)).then(console.log).catch(console.log)
+// queue([1, 2, 3, 4].map(promise)).then(console.log).catch(console.log)
+[1, 2, 3, 4].reduce((p, item) => p.then(promise(item)), Promise.resolve())

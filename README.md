@@ -1,0 +1,3 @@
+# Finally...
+
+reduce is good enough :)
