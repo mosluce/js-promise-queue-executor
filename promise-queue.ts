@@ -6,20 +6,20 @@
  * @param {(() => Promise<any>)[]} promiseFuncs 
  * @returns {Promise<Array<any>>} 
  */
-export function queue(promiseFuncs: (() => Promise<any>)[]): Promise<Array<any>> {
+export function queue(promiseFuncs: ((result: any) => Promise<any>)[]): Promise<Array<any>> {
 
   var chain: Promise<any>
   var out: Array<any> = []
 
   promiseFuncs.forEach(func => {
     if (!chain) {
-      chain = func()
+      chain = func(null)
       return
     }
 
     chain = chain.then(t => {
       out.push(t)
-      return func()
+      return func(t)
     })
   })
 

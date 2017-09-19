@@ -1,11 +1,13 @@
 const queue = require('./promise-queue').queue
 
 // Example
-function promise(txt) {
-  return () => new Promise((resolve) => {
+function promise(step) {
+  return (prestep) => new Promise((resolve) => {
+    if (prestep) console.log('after step =>', prestep)
     setTimeout(function () {
-      console.log(txt, 'done')
-      resolve(txt);
+      console.log('complete =>', step)
+      console.log('==============')
+      resolve(step);
     }, Math.random() * 1500);
   });
 }

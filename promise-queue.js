@@ -12,12 +12,12 @@ function queue(promiseFuncs) {
     var out = [];
     promiseFuncs.forEach(func => {
         if (!chain) {
-            chain = func();
+            chain = func(null);
             return;
         }
         chain = chain.then(t => {
             out.push(t);
-            return func();
+            return func(t);
         });
     });
     return chain.then(t => {
